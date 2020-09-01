@@ -1,0 +1,301 @@
+import java.util.ArrayList;
+import java.io.*;
+import java.util.*;
+
+/**
+ * ridho
+ */
+public class ridho {
+
+    public static void main(String[] args) {
+        ArrayList<objekHP> daftarHandphone = new ArrayList<objekHP>();
+
+        Scanner in = new Scanner(System.in);
+
+        String validasi = "";
+        int choice = 0;
+        int menu_choice = 0;
+        int Iphone_4_Hitam_iOS_4 = 0, Iphone_4s_Hitam_iOS_5 = 0, Iphone_5c_Merah_iOS_7 = 0, Iphone_5c_Biru_iOS_7 = 0,
+                Iphone_5c_Hijau_iOS_7 = 0;
+        int qty_iphone4hitamios4 = 0, qty_iphone4shitamios5 = 0, qty_iphone5cmerahios7 = 0, qty_iphone5cbiruios7 = 0,
+                qty_iphone5chijauios7 = 0;
+        int subtotal = 0;
+        int payment = 0;
+        int change = 0;
+
+        daftarHandphone.add(new objekHP("Iphone  4", "Hitam", "iOS 4", 16, 4, 1000000));
+        daftarHandphone.add(new objekHP("Iphone 4s", "Hitam", "iOS 5", 32, 4, 1500000));
+        daftarHandphone.add(new objekHP("Iphone 5c", "Hijau", "iOS 7", 16, 5, 2000000));
+        daftarHandphone.add(new objekHP("Iphone 5s", "Grey", "iOS 7", 16, 5, 2500000));
+        daftarHandphone.add(new objekHP("Iphone 6s", "Putih", "iOS 9", 64, 5, 5500000));
+        daftarHandphone.add(new objekHP("Iphone 6+", "Hitam", "iOS 8", 128, 6, 6500000));
+        daftarHandphone.add(new objekHP("Iphone  7", "Hitam", "iOS 10", 256, 5, 13000000));
+        daftarHandphone.add(new objekHP("Iphone 7+", "Hitam", "iOS 10", 256, 6, 15000000));
+        daftarHandphone.add(new objekHP("Iphone  8", "Putih", "iOS 11", 256, 5, 12000000));
+        daftarHandphone.add(new objekHP("Iphone 8+", "Hitam", "iOS 11", 256, 6, 15000000));
+        daftarHandphone.add(new objekHP("Iphone  X", "Gold", "iOS 11", 64, 6, 18000000));
+        daftarHandphone.add(new objekHP("Iphone XS", "Hitam", "iOS 12", 256, 6, 24000000));
+        daftarHandphone.add(new objekHP("Iphone XR", "Hitam", "iOS 12", 64, 6, 13000000));
+
+        System.out.println("Daftar Smartphone Yang Tersedia");
+        System.out.println("-------------------------------------------------------------------------");
+        System.out.print("No.\t|Merek\t        |Warna\t|OS\t|Memori\t|Layar\t|Harga\t\t|\n");
+        System.out.println("-------------------------------------------------------------------------");
+        for (int i = 0; i < daftarHandphone.size(); i++) {
+            System.out.print((i + 1) + "\t|" + daftarHandphone.get(i).getMerek() + "\t|"
+                    + daftarHandphone.get(i).getWarna() + "\t|" + daftarHandphone.get(i).getSistemOperasi() + "\t|"
+                    + daftarHandphone.get(i).getMemori() + "\t|" + daftarHandphone.get(i).getUkuran() + "\t|"
+                    + daftarHandphone.get(i).getHarga() + "\t|");
+            System.out.println("");
+        }
+        System.out.println("-------------------------------------------------------------------------");
+
+        do {
+            do {
+                validasi = "Y";
+                System.out.println("=== Andi Cellular ===");
+                System.out.println("1. Menu");
+                System.out.println("2. Payment");
+                System.out.println("3. Exit");
+                System.out.print(">> Choice : ");
+                try {
+                    choice = in.nextInt();
+                    if (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5) {
+                        validasi = "N";
+                    }
+                } catch (Exception e) {
+                    validasi = "N";
+                    in.nextLine();
+                }
+                if (validasi == "N") {
+                    System.out.println("  >>  Wrong input\n");
+                }
+            } while (validasi == "N");
+
+            switch (choice) {
+            case 1: // 1. Menu
+                do {
+                    validasi = "Y";
+                    System.out.println("#Menu#");
+                    System.out.println("1. Iphone  4 Hitam iOS 4 \t [ Rp.1.000.000]");
+                    System.out.println("2. Iphone 4s Hitam iOS 5 \t [ Rp.1.500.000]");
+                    System.out.println("3. Iphone 5c Merah iOS 7 \t [ Rp.2.000.000]");
+                    System.out.println("4. Iphone 5c Biru iOS 7  \t [ Rp.2.000.000]");
+                    System.out.println("5. Iphone 5c Hijau iOS 7  \t\t [ Rp.2.000.000]");
+                    System.out.println("6. Back ");
+
+                    try {
+                        System.out.print(">> Choice : ");
+                        menu_choice = in.nextInt();
+                        if (menu_choice != 1 && menu_choice != 2 && menu_choice != 3 && menu_choice != 4
+                                && menu_choice != 5 && menu_choice != 6) {
+                            validasi = "N";
+                        }
+                    } catch (Exception e) {
+                        validasi = "N";
+                        in.nextLine();
+                    }
+                } while (validasi == "N");
+
+                switch (menu_choice) {
+                case 1: // Iphone 4 Hitam iOS 4
+                    Iphone_4_Hitam_iOS_4 = 1;
+                    do {
+                        validasi = "Y";
+
+                        try {
+                            System.out.print(">> Quantity [1 - 10] : ");
+                            qty_iphone4hitamios4 = in.nextInt();
+
+                            if (qty_iphone4hitamios4 < 1 || qty_iphone4hitamios4 > 10) {
+                                validasi = "N";
+                            }
+                        } catch (Exception e) {
+                            validasi = "N";
+                            in.nextLine();
+                        }
+                        if (validasi == "N") {
+                            System.out.println("   >> Wrong Input");
+                        }
+                    } while (validasi == "N");
+                    System.out.println("== You've ordered " + qty_iphone4hitamios4 + "Iphone 4 Hitam iOS 4 ==");
+                    System.out.println("== Please go to Payment Menu to pay the bill ==");
+                    break;
+
+                case 2: // Iphone 4s Hitam iOS 5
+                    Iphone_4s_Hitam_iOS_5 = 1;
+                    do {
+                        validasi = "Y";
+
+                        try {
+                            System.out.print(">> Quantity [1 - 10] : ");
+                            qty_iphone4shitamios5 = in.nextInt();
+
+                            if (qty_iphone4shitamios5 < 1 || qty_iphone4shitamios5 > 10) {
+                                validasi = "N";
+                            }
+                        } catch (Exception e) {
+                            validasi = "N";
+                            in.nextLine();
+                        }
+                        if (validasi == "N") {
+                            System.out.println(" >> Wrong Input");
+                        }
+                    } while (validasi == "N");
+                    System.out.println("== You've ordered " + qty_iphone4shitamios5 + " Iphone 4s Hitam iOS 5 ==");
+                    System.out.println("== Please go to Payment menu to pay the bill");
+                    break;
+
+                case 3: // Iphone 5c Merah iOS 7
+                    Iphone_5c_Merah_iOS_7 = 1;
+                    do {
+                        validasi = "Y";
+
+                        try {
+                            System.out.print(">> Quantity [1 - 10] : ");
+                            qty_iphone5cmerahios7 = in.nextInt();
+
+                            if (qty_iphone5cmerahios7 < 1 || qty_iphone5cmerahios7 > 10) {
+                                validasi = "N";
+                            }
+                        } catch (Exception e) {
+                            validasi = "N";
+                            in.nextLine();
+                        }
+                        if (validasi == "N") {
+                            System.out.println(" >> Wrong Input");
+                        }
+                    } while (validasi == "N");
+                    System.out.println("== You've ordered " + qty_iphone5cmerahios7 + " Iphone 5c Merah iOS 7 ==");
+                    System.out.println("== Please go to Payment menu to pay the bill");
+                    break;
+
+                case 4: // Iphone 5c Biru iOS 7
+                    Iphone_5c_Biru_iOS_7 = 1;
+                    do {
+                        validasi = "Y";
+
+                        try {
+                            System.out.print(">> Quantity [1 - 10] : ");
+                            qty_iphone5cbiruios7 = in.nextInt();
+
+                            if (qty_iphone5cbiruios7 < 1 || qty_iphone5cbiruios7 > 10) {
+                                validasi = "N";
+                            }
+                        } catch (Exception e) {
+                            validasi = "N";
+                            in.nextLine();
+                        }
+                        if (validasi == "N") {
+                            System.out.println(" >> Wrong Input");
+                        }
+                    } while (validasi == "N");
+                    System.out.println("== You've ordered " + qty_iphone5cbiruios7 + " Iphone 5c Biru iOS 7 ==");
+                    System.out.println("== Please go to Payment menu to pay the bill");
+                    break;
+
+                case 5: // Iphone 5c Merah iOS 7
+                    Iphone_5c_Hijau_iOS_7 = 1;
+                    do {
+                        validasi = "Y";
+                        System.out.print(">> Quantity [1 - 10] : ");
+                        try {
+                            qty_iphone5chijauios7 = in.nextInt();
+
+                            if (qty_iphone5chijauios7 < 1 || qty_iphone5chijauios7 > 10) {
+                                validasi = "N";
+                            }
+                        } catch (Exception e) {
+                            validasi = "N";
+                            in.nextLine();
+                        }
+                        if (validasi == "N") {
+                            System.out.println(" >> Wrong Input");
+                        }
+                    } while (validasi == "N");
+                    System.out.println("== You've ordered " + qty_iphone5chijauios7 + " Iphone 5c Hijau iOS 7 ==");
+                    System.out.println("== Please go to Payment menu to pay the bill");
+                    break;
+
+                case 6:// back
+                    break;
+                }
+
+            case 2: // 2. Payment
+                System.out.println("#Payment#");
+                if (Iphone_4_Hitam_iOS_4 == 0 && Iphone_4s_Hitam_iOS_5 == 0 && Iphone_5c_Merah_iOS_7 == 0
+                        && Iphone_5c_Biru_iOS_7 == 0 && Iphone_5c_Hijau_iOS_7 == 0) {
+                    System.out.println("== You didn't order anything yet ==");
+                    System.out.println("== Please go to Menu to Order ==");
+                    break;
+                }
+                int total_Iphone_4_Hitam_iOS_4 = 0, total_Iphone_4s_Hitam_iOS_5 = 0, total_Iphone_5c_Merah_iOS_7 = 0,
+                        total_Iphone_5c_Biru_iOS_7 = 0, total_Iphone_5c_Hijau_iOS_7 = 0;
+
+                if (Iphone_4_Hitam_iOS_4 == 1) {
+                    total_Iphone_4_Hitam_iOS_4 = 1000000 * qty_iphone4hitamios4;
+                }
+                if (Iphone_4s_Hitam_iOS_5 == 1) {
+                    total_Iphone_4s_Hitam_iOS_5 = 1500000 * qty_iphone4shitamios5;
+                }
+                if (Iphone_5c_Merah_iOS_7 == 1) {
+                    total_Iphone_5c_Merah_iOS_7 = 2000000 * qty_iphone5cmerahios7;
+                }
+                if (Iphone_5c_Biru_iOS_7 == 1) {
+                    total_Iphone_5c_Biru_iOS_7 = 2000000 * qty_iphone5cbiruios7;
+                }
+                if (Iphone_5c_Hijau_iOS_7 == 1) {
+                    total_Iphone_5c_Hijau_iOS_7 = 2000000 * qty_iphone5chijauios7;
+                }
+                subtotal = total_Iphone_4_Hitam_iOS_4 + total_Iphone_4s_Hitam_iOS_5 + total_Iphone_5c_Merah_iOS_7
+                        + total_Iphone_5c_Biru_iOS_7 + total_Iphone_5c_Hijau_iOS_7;
+                System.out.println("== Your Orders Are:   ==");
+                System.out.println(qty_iphone4hitamios4 + "Iphone 4 Hitam iOS 4 \t : Rp." + total_Iphone_4_Hitam_iOS_4);
+                System.out.println(
+                        qty_iphone4shitamios5 + "Iphone 4s Hitam iOS 5 \t : Rp." + total_Iphone_4s_Hitam_iOS_5);
+                System.out.println(
+                        qty_iphone5cmerahios7 + "Iphone 5c Merah iOS 7 \t : Rp." + total_Iphone_5c_Merah_iOS_7);
+                System.out.println(qty_iphone5cbiruios7 + "Iphone 5c Biru iOS 7 \t : Rp." + total_Iphone_5c_Biru_iOS_7);
+                System.out.println(
+                        qty_iphone5chijauios7 + "Iphone 5c Hijau iOS 7 \t : Rp." + total_Iphone_5c_Hijau_iOS_7);
+                System.out.println("== Subtotal : Rp." + subtotal + " ==");
+
+                do {
+                    validasi = "Y";
+                    System.out.print("\n\n\nYour Payment : ");
+                    try {
+                        payment = in.nextInt();
+                        if (payment < subtotal) {
+                            validasi = "N";
+                            System.out.println("   >> Not Enough");
+                        }
+                    } catch (Exception e) {
+                        validasi = "N";
+                        System.out.println("  >> Wrong Input");
+                        in.nextLine();
+                    }
+                } while (validasi == "N");
+
+                if (payment == subtotal) {
+                    System.out.println("== Payment Success! ==");
+                    System.out.println("== Thanks For Coming :) ==");
+                } else if (payment > subtotal) {
+                    change = payment - subtotal;
+                    System.out.println("== Your Change : Rp." + change + " ==");
+                    System.out.println("== Payment Success! ==");
+                    System.out.println("== Thanks For Coming :) ==");
+                }
+                Iphone_4_Hitam_iOS_4 = 0;
+                Iphone_4s_Hitam_iOS_5 = 0;
+                Iphone_5c_Merah_iOS_7 = 0;
+                Iphone_5c_Biru_iOS_7 = 0;
+                Iphone_5c_Hijau_iOS_7 = 0;
+                break;
+
+            case 3: // 3.Exit
+                System.exit(0);
+                break;
+            }
+        } while (true);
+    }
+}

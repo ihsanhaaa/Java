@@ -1,0 +1,51 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - truelove",
+            "request": "launch",
+            "mainClass": "truelove",
+            "projectName": "CODING JAVA SEMESTER 2_5c8ee37b"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ValidasiIhsan",
+            "request": "launch",
+            "mainClass": "ValidasiIhsan",
+            "projectName": "CODING JAVA SEMESTER 2_5c8ee37b"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ArrayListPrimitive1",
+            "request": "launch",
+            "mainClass": "ArrayListPrimitive1",
+            "projectName": "CODING JAVA SEMESTER 2_5c8ee37b"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - array1",
+            "request": "launch",
+            "mainClass": "array1",
+            "projectName": "CODING JAVA SEMESTER 2_5c8ee37b"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - pertama",
+            "request": "launch",
+            "mainClass": "pertama",
+            "projectName": "JAVA_72d9c41b"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - programPertama",
+            "request": "launch",
+            "mainClass": "programPertama"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - hello",
+            "request": "launch",
+            "mainClass": "hello"
+        }
+    ]
+}
